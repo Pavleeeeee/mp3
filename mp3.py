@@ -98,7 +98,7 @@ play_btn.place(x=185, y=10)
 resume_btn = Button(button_frame, text='Resume', bg='Aqua', font=("Georgia", 13), width=7, command=lambda: resume_song(song_status))
 resume_btn.place(x=270, y=10)
 
-skip_btn = Button(button_frame, text='Skip Song', bg='Aqua', font=("Georgia", 13), width=10, command=lambda: skip_song(song_status, playlist))
+skip_btn = Button(button_frame, text='Next', bg='Aqua', font=("Georgia", 13), width=10, command=lambda: skip_song(song_status, playlist))
 skip_btn.place(x=355, y=10)
 
 previous_btn = Button(button_frame, text='Previous', bg='Aqua', font=("Georgia", 13), width=10, command=lambda: previous_song(song_status, playlist))
