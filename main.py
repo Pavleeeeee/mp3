@@ -28,25 +28,25 @@ def resume(status: StringVar):
     mixer.music.unpause()
     status.set("Pesma je pustena")
 def preskoci(status: StringVar, songs_list: Listbox):
-    current_index = songs_list.curselection()
-    if current_index:
-        next_index = (current_index[0] + 1) % songs_list.size()
+    sadasnji_indeks = songs_list.curselection()
+    if sadasnji_indeks:
+        next_index = (sadasnji_indeks[0] + 1) % songs_list.size()
         ime_pesme.set(songs_list.get(next_index))
         mixer.music.load(songs_list.get(next_index))
         mixer.music.play()
         status.set(f"Playing: {songs_list.get(next_index)}")
 def prethodna(status: StringVar, songs_list: Listbox):
-    current_index = songs_list.curselection()
-    if current_index:
-        prev_index = (current_index[0] - 1) % songs_list.size()
+    sadasnji_indeks = songs_list.curselection()
+    if sadasnji_indeks:
+        prev_index = (sadasnji_indeks[0] - 1) % songs_list.size()
         ime_pesme.set(songs_list.get(prev_index))
         mixer.music.load(songs_list.get(prev_index))
         mixer.music.play()
         status.set(f"Pusta: {songs_list.get(prev_index)}")
 def shuffle(ime_pesme: StringVar, songs_list: Listbox, status: StringVar):
-    songs = list(songs_list.get(0, END))
-    if songs:
-        random_song = random.choice(songs)
+    pesme = list(songs_list.get(0, END))
+    if pesme:
+        random_song = random.choice(pesme)
         ime_pesme.set(random_song)
         mixer.music.load(random_song)
         mixer.music.play()
@@ -71,7 +71,7 @@ listbox_frame.place(x=700, y=0, height=200, width=300)
 ime_pesme = StringVar(root, value='<Not selected>')
 status_pesme = StringVar(root, value='<Not Available>')
 
-playlist = Listbox(listbox_frame, font=('Helvetica', 11), selectbackground='Gold', bg='#3A3A3A', fg='white', selectmode=SINGLE)
+playlist = Listbox(listbox_frame, font=('Helvetica', 11), selectbackground='Yellow', bg='#3A3A3A', fg='white', selectmode=SINGLE)
 playlist.pack(fill=BOTH, padx=5, pady=5, expand=True)
 
 scroll_bar = Scrollbar(listbox_frame, orient=VERTICAL, bg='#3A3A3A')
@@ -83,7 +83,7 @@ scroll_bar.config(command=playlist.yview)
 playlist.pack(fill=BOTH, padx=5, pady=5)
 
 Label(song_frame, text='Trenutna pesma:', bg='RoyalBlue', font=('Times', 10, 'bold')).place(x=5, y=20)
-song_lbl = Label(song_frame, textvariable=ime_pesme, bg='Goldenrod', font=("Times", 12), width=40)
+song_lbl = Label(song_frame, textvariable=ime_pesme, bg='Yellow', font=("Times", 12), width=40)
 song_lbl.place(x=150, y=20)
 
 pause_btn = Button(button_frame, text='Pause', bg='Aqua', font=("Georgia", 13), width=7, command=lambda: pauza(status_pesme))
