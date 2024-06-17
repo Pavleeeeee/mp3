@@ -71,7 +71,7 @@ listbox_frame.place(x=700, y=0, height=200, width=300)
 ime_pesme = StringVar(root, value='<Not selected>')
 status_pesme = StringVar(root, value='<Not Available>')
 
-playlist = Listbox(listbox_frame, font=('Helvetica', 11), selectbackground='Gold', bg='#3A3A3A', fg='white', selectmode=SINGLE)
+playlist = Listbox(listbox_frame, font=('Helvetica', 11), selectbackground='Yellow', bg='#3A3A3A', fg='white', selectmode=SINGLE)
 playlist.pack(fill=BOTH, padx=5, pady=5, expand=True)
 
 scroll_bar = Scrollbar(listbox_frame, orient=VERTICAL, bg='#3A3A3A')
@@ -83,7 +83,7 @@ scroll_bar.config(command=playlist.yview)
 playlist.pack(fill=BOTH, padx=5, pady=5)
 
 Label(song_frame, text='Trenutna pesma:', bg='RoyalBlue', font=('Times', 10, 'bold')).place(x=5, y=20)
-song_lbl = Label(song_frame, textvariable=ime_pesme, bg='Goldenrod', font=("Times", 12), width=40)
+song_lbl = Label(song_frame, textvariable=ime_pesme, bg='Yellow', font=("Times", 12), width=40)
 song_lbl.place(x=150, y=20)
 
 pause_btn = Button(button_frame, text='Pause', bg='Aqua', font=("Georgia", 13), width=7, command=lambda: pauza(status_pesme))
@@ -110,7 +110,7 @@ shuffle_btn.place(x=585, y=10)
 load_btn = Button(button_frame, text='Load Directory', bg='Aqua', font=("Georgia", 13), width=68, command=lambda: load(playlist))
 load_btn.place(x=10, y=55)
 
-Label(root, textvariable=status_pesme, bg='SteelBlue', font=('Times', 9), justify=LEFT).pack(side=BOTTOM, fill=X)
+Label(root, textvariable=status_pesme, bg='Blue', font=('Times', 9), justify=LEFT).pack(side=BOTTOM, fill=X)
 
 root.update()
 root.mainloop()
